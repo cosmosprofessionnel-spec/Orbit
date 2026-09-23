@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Politique de confidentialité — Orbit</title>
+  <meta name="description" content="Politique de confidentialité du bot Discord Orbit : quelles données sont stockées, pourquoi, et comment les supprimer.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="inner">
+    <a class="logo" href="index.html">🪐 <span>Orbit</span></a>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="terms.html">Conditions</a>
+      <a href="privacy.html" class="active">Confidentialité</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Politique de confidentialité</h1>
+  <p class="updated">Dernière mise à jour : 22 septembre 2026</p>
+
+  <div class="card note">
+    <strong>En bref :</strong> Orbit <strong>ne lit pas tes messages</strong>. Il enregistre uniquement ton identifiant Discord,
+    ton solde virtuel et tes statistiques de jeu, serveur par serveur. Rien n'est vendu ni partagé.
+    Tu peux tout voir avec <code>/mydata voir</code> et tout effacer avec <code>/mydata supprimer</code>.
+  </div>
+
+  <h2>1. Qui est responsable ?</h2>
+  <p>
+    Orbit est un bot Discord indépendant, développé et hébergé par son créateur.
+    Il n'est ni affilié à Discord Inc., ni approuvé par elle. Contact : voir la section 10.
+  </p>
+
+  <h2>2. Données que nous enregistrons</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Donnée</th><th>Pourquoi</th></tr>
+      <tr><td>Ton identifiant Discord (un numéro)</td><td>Associer ton solde et tes statistiques à ton compte</td></tr>
+      <tr><td>L'identifiant des serveurs où le bot est présent</td><td>Chaque serveur a sa propre économie et ses réglages</td></tr>
+      <tr><td>Ton solde virtuel sur chaque serveur</td><td>Faire fonctionner les jeux et l'économie</td></tr>
+      <tr><td>Tes statistiques : parties jouées et gagnées, total misé, plus gros gain, points d'expérience</td><td>Niveaux, profils et classements</td></tr>
+      <tr><td>Dates de ta dernière récompense <code>/daily</code> et <code>/work</code>, série de jours</td><td>Appliquer les délais d'attente et les bonus de série</td></tr>
+      <tr><td>Réglages du serveur : nom de la monnaie, montants, jeux activés, identifiants de rôles et de salons choisis par les administrateurs, articles de la boutique</td><td>Configurer le bot sur chaque serveur</td></tr>
+    </table>
+  </div>
+
+  <h2>3. Données que nous n'enregistrons pas</h2>
+  <ul>
+    <li>Le contenu de tes messages : le bot n'a pas l'autorisation de les lire.</li>
+    <li>Ton adresse e-mail, ton numéro de téléphone ou ton adresse IP.</li>
+    <li>Ton pseudo ou ton avatar : ils sont affichés au moment de la commande, directement depuis Discord, sans être stockés.</li>
+    <li>La liste des membres de ton serveur.</li>
+  </ul>
+  <p>
+    Les parties en cours (cartes, grille de mines, etc.) sont gardées quelques minutes en mémoire vive, uniquement le temps de la partie.
+  </p>
+
+  <h2>4. Utilisation des données</h2>
+  <p>
+    Les données servent <strong>uniquement</strong> à faire fonctionner le bot (jeux, économie, classements, réglages)
+    et, en cas de problème, à corriger des bugs ou à lutter contre la triche.
+    Elles ne sont jamais utilisées pour de la publicité ou du profilage, ni vendues.
+  </p>
+  <p>
+    Base légale (RGPD) : l'exécution du service que tu demandes en utilisant le bot et notre intérêt légitime à le faire fonctionner correctement.
+  </p>
+
+  <h2>5. Partage</h2>
+  <p>
+    Nous ne partageons tes données avec personne. Certaines informations sont visibles par les autres membres
+    du même serveur quand tu utilises le bot (ton solde dans le classement, les résultats de tes parties, ton profil).
+    Les données transitent par Discord, qui applique sa propre
+    <a href="https://discord.com/privacy" target="_blank" rel="noopener">politique de confidentialité</a>.
+  </p>
+
+  <h2>6. Conservation</h2>
+  <ul>
+    <li>Tes données sont conservées tant que le bot est présent sur le serveur concerné.</li>
+    <li>Quand le bot est retiré d'un serveur, toutes les données de ce serveur sont <strong>automatiquement supprimées sous 30 jours</strong>.</li>
+    <li>Les administrateurs d'un serveur peuvent effacer tous les soldes et statistiques du serveur avec <code>/config reinitialiser</code>.</li>
+    <li>Tu peux supprimer tes propres données à tout moment avec <code>/mydata supprimer</code>.</li>
+  </ul>
+
+  <h2>7. Tes droits</h2>
+  <p>Tu disposes d'un droit d'accès, de rectification, d'effacement et d'opposition :</p>
+  <ul>
+    <li><strong>Accès :</strong> <code>/mydata voir</code> affiche tout ce qui est enregistré sur toi.</li>
+    <li><strong>Effacement :</strong> <code>/mydata supprimer</code> efface tes données sur tous les serveurs, immédiatement.</li>
+    <li><strong>Autres demandes :</strong> contacte-nous via le serveur de support (section 10).</li>
+  </ul>
+  <p>
+    Si tu es dans l'Union européenne, tu peux aussi déposer une réclamation auprès de l'autorité de protection des données
+    de ton pays (en France : la <a href="https://www.cnil.fr" target="_blank" rel="noopener">CNIL</a>).
+  </p>
+
+  <h2>8. Sécurité</h2>
+  <p>
+    Les données sont stockées dans une base de données sur le serveur qui héberge le bot, accessible uniquement par son développeur.
+    Le jeton secret du bot n'est jamais partagé.
+  </p>
+
+  <h2>9. Mineurs</h2>
+  <p>
+    Orbit est destiné aux personnes qui ont l'âge minimum requis pour utiliser Discord dans leur pays.
+    Nous ne collectons volontairement aucune donnée permettant d'identifier une personne.
+  </p>
+
+  <h2>10. Contact et modifications</h2>
+  <p>
+    Pour toute question ou demande concernant tes données :
+    <a class="support-link" href="https://discord.gg/TON-LIEN-SUPPORT" target="_blank" rel="noopener">serveur Discord de support d'Orbit</a>.
+  </p>
+  <p>Cette politique peut évoluer ; la date de mise à jour en haut de page sera alors modifiée.</p>
+
+  <div class="card">
+    <strong>English summary.</strong> Orbit does not read message content. It only stores your Discord user ID, server IDs,
+    your virtual balance, game statistics (games played/won, amount wagered, biggest win, XP), daily/work timestamps and
+    server settings chosen by admins. Data is used solely to run the bot, is never sold or shared, and is deleted within
+    30 days after the bot leaves a server. Use <code>/mydata voir</code> to see your data and <code>/mydata supprimer</code>
+    to delete it instantly. Contact us through the support server linked above.
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <a href="index.html">Accueil</a>
+    <a href="terms.html">Conditions d'utilisation</a>
+    <a href="privacy.html">Politique de confidentialité</a>
+    <span>© 2026 Orbit</span>
+  </div>
+</footer>
+</body>
+</html>
