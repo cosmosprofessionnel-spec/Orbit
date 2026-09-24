@@ -4,49 +4,124 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Orbit — le casino de ton serveur Discord</title>
-  <meta name="description" content="Orbit : 9 jeux, économie virtuelle, niveaux, classements et boutique de rôles pour ton serveur Discord.">
+  <meta name="description" content="Orbit : 13 jeux, défis quotidiens, économie virtuelle, classements automatiques et panneau web pour ton serveur Discord. En français et en anglais.">
+  <meta property="og:title" content="Orbit — le casino de ton serveur Discord">
+  <meta property="og:description" content="13 jeux, défis, classements, boutique, panneau web. Monnaie 100 % virtuelle.">
+  <meta property="og:image" content="banner.jpg">
+  <link rel="icon" href="avatar.png">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="home">
 <header>
   <div class="inner">
     <a class="logo" href="index.html">🪐 <span>Orbit</span></a>
     <nav>
-      <a href="index.html" class="active">Accueil</a>
+      <a href="#jeux"><span class="fr">Jeux</span><span class="en">Games</span></a>
+      <a href="#config"><span class="fr">Configurer</span><span class="en">Setup</span></a>
+      <a href="#soutenir"><span class="fr">Soutenir</span><span class="en">Support</span></a>
       <a href="terms.html">Conditions</a>
-      <a href="privacy.html">Confidentialité</a>
+      <a href="privacy.html"><span class="fr">Confidentialité</span><span class="en">Privacy</span></a>
+      <span class="lang-switch"><button data-l="fr">FR</button><button data-l="en">EN</button></span>
     </nav>
   </div>
 </header>
 
 <main>
+  <img class="banner" src="banner.jpg" alt="Orbit">
   <section class="hero">
+    <img class="avatar" src="avatar.png" alt="">
     <h1>🪐 Orbit</h1>
-    <p>Le casino de ton serveur Discord : 9 jeux, une économie propre à chaque serveur, des niveaux, des classements et une boutique de rôles.</p>
-    <a class="btn primary invite-link" href="https://discord.com/oauth2/authorize?client_id=1551774049808678972&permissions=268520464&scope=bot+applications.commands">➕ Ajouter à Discord</a>
-    <a class="btn support-link" href="https://discord.gg/TON-LIEN-SUPPORT">💬 Serveur de support</a>
+    <p class="fr">Le casino de ton serveur Discord : 13 jeux, des défis chaque jour, une économie propre à chaque serveur, des classements automatiques et un panneau web. En français et en anglais.</p>
+    <p class="en">Your Discord server's casino: 13 games, daily challenges, a separate economy per server, automatic leaderboards and a web panel. In English and French.</p>
+    <div class="stats">
+      <div><b>13</b><span class="fr">jeux</span><span class="en">games</span></div>
+      <div><b>6</b><span class="fr">défis / semaine</span><span class="en">challenges / week</span></div>
+      <div><b>4</b><span class="fr">joueurs au blackjack</span><span class="en">blackjack players</span></div>
+      <div><b>🇫🇷 🇬🇧</b><span class="fr">2 langues</span><span class="en">2 languages</span></div>
+    </div>
+    <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1551774049808678972&permissions=268553232&scope=bot+applications.commands">➕ <span class="fr">Ajouter à Discord</span><span class="en">Add to Discord</span></a>
+    <a class="btn vote" href="https://top.gg/bot/1551774049808678972/vote">🗳️ <span class="fr">Voter</span><span class="en">Vote</span></a>
+    <a class="btn support-link" href="https://discord.gg/anFSkHyWSw">💬 Support</a>
   </section>
 
+  <h2 class="section-title" id="jeux">🎮 <span class="fr">Les jeux</span><span class="en">The games</span></h2>
+  <div class="games">
+    <div class="game"><span class="e">🎰</span><b>Slots</b><small class="fr">jusqu'à x150</small><small class="en">up to x150</small></div>
+    <div class="game"><span class="e">🃏</span><b>Blackjack</b><small class="fr">seul ou à 4</small><small class="en">solo or up to 4</small></div>
+    <div class="game"><span class="e">🎡</span><b>Roulette</b><small class="fr">numéro plein x36</small><small class="en">single number x36</small></div>
+    <div class="game"><span class="e">🚀</span><b>Crash</b><small class="fr">jusqu'à x50</small><small class="en">up to x50</small></div>
+    <div class="game"><span class="e">💣</span><b>Mines</b><small class="fr">évite les bombes</small><small class="en">avoid the bombs</small></div>
+    <div class="game"><span class="e">🗼</span><b><span class="fr">Tour</span><span class="en">Tower</span></b><small class="fr">grimpe sans tomber</small><small class="en">climb, don't fall</small></div>
+    <div class="game"><span class="e">🎯</span><b>Plinko</b><small class="fr">jusqu'à x29</small><small class="en">up to x29</small></div>
+    <div class="game"><span class="e">🎟️</span><b><span class="fr">Grattage</span><span class="en">Scratch</span></b><small class="fr">jusqu'à x100</small><small class="en">up to x100</small></div>
+    <div class="game"><span class="e">🏇</span><b><span class="fr">Course</span><span class="en">Horse race</span></b><small class="fr">tout le serveur parie</small><small class="en">the whole server bets</small></div>
+    <div class="game"><span class="e">🔼</span><b><span class="fr">Plus ou moins</span><span class="en">Higher/Lower</span></b><small class="fr">suis ton instinct</small><small class="en">trust your gut</small></div>
+    <div class="game"><span class="e">🪙</span><b><span class="fr">Pile ou face</span><span class="en">Coin flip</span></b><small>x2</small></div>
+    <div class="game"><span class="e">🎲</span><b><span class="fr">Dés</span><span class="en">Dice</span></b><small class="fr">contre la maison</small><small class="en">vs the house</small></div>
+    <div class="game"><span class="e">⚔️</span><b>Duel</b><small class="fr">joueur contre joueur</small><small class="en">player vs player</small></div>
+  </div>
+
+  <h2 class="section-title">✨ <span class="fr">Tout ce qu'il faut pour ton serveur</span><span class="en">Everything your server needs</span></h2>
   <div class="grid">
-    <div class="card"><h3>🎰 9 jeux</h3><p>Machine à sous, blackjack, roulette, pile ou face, dés, crash, mines, plus ou moins et duels entre joueurs.</p></div>
-    <div class="card"><h3>💰 Économie</h3><p>/daily avec bonus de série, /work, virements et boutique de rôles.</p></div>
-    <div class="card"><h3>⭐ Progression</h3><p>XP à chaque partie, niveaux avec récompenses, profils et classements.</p></div>
-    <div class="card"><h3>⚙️ Prêt en 1 minute</h3><p>Fonctionne tout de suite. /setup pour choisir les jeux, la monnaie et créer les salons.</p></div>
-    <div class="card"><h3>🔒 Respect de la vie privée</h3><p>Aucun message lu. /mydata pour voir ou supprimer tes données.</p></div>
-    <div class="card"><h3>🎲 Hasard équitable</h3><p>Tirages cryptographiquement sûrs et règles transparentes.</p></div>
+    <div class="card"><h3>🎯 <span class="fr">Défis quotidiens</span><span class="en">Daily challenges</span></h3><p class="fr">3 défis par jour et 3 par semaine, différents pour chaque joueur. Tout le monde peut gagner !</p><p class="en">3 daily and 3 weekly challenges, unique to each player. Everyone can win!</p></div>
+    <div class="card"><h3>🎰 <span class="fr">Espace casino</span><span class="en">Casino area</span></h3><p class="fr">Salons dédiés, accueil avec boutons rapides : le reste du serveur reste propre.</p><p class="en">Dedicated channels and a welcome panel with quick buttons: the rest of your server stays clean.</p></div>
+    <div class="card"><h3>🏆 <span class="fr">Classement automatique</span><span class="en">Auto leaderboard</span></h3><p class="fr">Un salon qui se met à jour tout seul : richesse, niveau, plus gros gain.</p><p class="en">A channel that updates itself: wealth, level, biggest win.</p></div>
+    <div class="card"><h3>🛒 <span class="fr">Boutique fixe</span><span class="en">Shop panel</span></h3><p class="fr">Vends des rôles contre des pièces, avec un menu toujours visible.</p><p class="en">Sell roles for coins with an always-visible menu.</p></div>
+    <div class="card"><h3>🗳️ <span class="fr">Bonus de vote</span><span class="en">Vote bonus</span></h3><p class="fr">Vote pour Orbit : x1.5 sur daily, work et défis pendant 12 h.</p><p class="en">Vote for Orbit: x1.5 on daily, work and challenges for 12 h.</p></div>
+    <div class="card"><h3>🔒 <span class="fr">Vie privée</span><span class="en">Privacy</span></h3><p class="fr">Aucun message lu. <code>/mydata</code> pour voir ou supprimer tes données.</p><p class="en">No messages read. <code>/mydata</code> to view or delete your data.</p></div>
+  </div>
+
+  <h2 class="section-title" id="config">⚙️ <span class="fr">Configurer Orbit</span><span class="en">Set up Orbit</span></h2>
+  <div class="card">
+    <ol class="steps fr">
+      <li>Ajoute Orbit à ton serveur avec le bouton en haut de la page.</li>
+      <li>Tape <code>/setup</code> : langue, jeux, rôle Maître du jeu, et Orbit crée tout l'espace casino (accueil, salon de jeu, classement, boutique).</li>
+      <li>Pour aller plus loin, tape <code>/dashboard</code> : Orbit t'envoie un <strong>lien personnel</strong> vers le panneau web, pour tout régler depuis ton navigateur (monnaie, jeux, salons, boutique, langue…).</li>
+    </ol>
+    <ol class="steps en">
+      <li>Add Orbit to your server with the button at the top of the page.</li>
+      <li>Type <code>/setup</code>: language, games, Game Master role, and Orbit builds the whole casino area (welcome, game channel, leaderboard, shop).</li>
+      <li>To go further, type <code>/dashboard</code>: Orbit sends you a <strong>personal link</strong> to the web panel to set everything from your browser (currency, games, channels, shop, language…).</li>
+    </ol>
+  </div>
+
+  <h2 class="section-title" id="soutenir">💜 <span class="fr">Soutenir Orbit</span><span class="en">Support Orbit</span></h2>
+  <div class="card support-box">
+    <p class="fr">Orbit est gratuit et développé par un passionné. Tu peux l'aider à grandir en <strong>votant</strong> (ça te donne un bonus en jeu !) ou en faisant un <strong>petit don</strong> pour payer l'hébergement.</p>
+    <p class="en">Orbit is free and made by one passionate developer. You can help it grow by <strong>voting</strong> (you get an in-game bonus!) or with a <strong>small donation</strong> to pay for hosting.</p>
+    <a class="btn vote" href="https://top.gg/bot/1551774049808678972/vote">🗳️ <span class="fr">Voter sur top.gg</span><span class="en">Vote on top.gg</span></a>
+    <a class="btn kofi" id="kofi" href="https://ko-fi.com/cosmoos">☕ <span class="fr">Faire un don sur Ko-fi</span><span class="en">Donate on Ko-fi</span></a>
+    <p class="updated" style="margin-top:12px"><span class="fr">Les dons sont 100 % volontaires et ne donnent <strong>aucun avantage en jeu</strong>.</span><span class="en">Donations are 100% voluntary and give <strong>no in-game advantage</strong>.</span></p>
   </div>
 
   <div class="card note" style="margin-top:28px">
-    La monnaie d'Orbit est <strong>100 % virtuelle</strong> : elle ne s'achète pas, ne se revend pas et n'a aucune valeur réelle.
+    <span class="fr">La monnaie d'Orbit est <strong>100 % virtuelle</strong> : elle ne s'achète pas, ne se revend pas et n'a aucune valeur réelle.</span>
+    <span class="en">Orbit's currency is <strong>100% virtual</strong>: it can't be bought or sold and has no real value.</span>
   </div>
 </main>
 
 <footer>
   <div class="inner">
-    <a href="terms.html">Conditions d'utilisation</a>
-    <a href="privacy.html">Politique de confidentialité</a>
+    <a href="terms.html"><span class="fr">Conditions d'utilisation</span><span class="en">Terms of service</span></a>
+    <a href="privacy.html"><span class="fr">Politique de confidentialité</span><span class="en">Privacy policy</span></a>
     <span>© 2026 Orbit</span>
   </div>
 </footer>
+<script>
+  // Langue : choix mémorisé, sinon celle du navigateur
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem('orbit-lang'); } catch (e) {}
+    var lang = saved || ((navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en');
+    function apply(l) {
+      document.body.classList.toggle('en', l === 'en');
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang-switch button').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
+      try { localStorage.setItem('orbit-lang', l); } catch (e) {}
+    }
+    document.querySelectorAll('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.l); }); });
+    apply(lang);
+  })();
+</script>
 </body>
 </html>
