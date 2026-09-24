@@ -9,9 +9,53 @@
   <meta property="og:description" content="13 jeux, défis, classements, boutique, panneau web. Monnaie 100 % virtuelle.">
   <meta property="og:image" content="banner.jpg">
   <link rel="icon" href="avatar.png">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+/* ===== Page d'accueil v3 ===== */
+.lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin-left: 16px; vertical-align: middle; }
+.lang-switch button { background: none; border: 0; color: var(--muted); padding: 5px 10px; cursor: pointer; font-size: .85rem; }
+.lang-switch button.on { background: var(--accent); color: #fff; }
+body.en .fr, body:not(.en) .en { display: none !important; }
+.home main { max-width: 980px; }
+.banner { width: 100%; border-radius: 18px; display: block; border: 1px solid var(--border); }
+.hero .avatar { width: 108px; height: 108px; border-radius: 28px; margin: -70px auto 10px; display: block; border: 4px solid var(--bg); box-shadow: 0 10px 30px #7c5cff55; }
+.hero h1 { margin-top: 6px; }
+.stats { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin: 8px 0 18px; color: var(--muted); }
+.stats b { display: block; font-size: 1.6rem; color: var(--text); }
+.games { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.game { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; }
+.game .e { font-size: 1.9rem; display: block; }
+.game b { display: block; margin-top: 4px; }
+.game small { color: var(--muted); }
+.section-title { text-align: center; margin: 44px 0 16px; border: 0; font-size: 1.5rem; }
+.steps { counter-reset: s; list-style: none; padding: 0; }
+.steps li { counter-increment: s; padding-left: 44px; position: relative; margin: 12px 0; }
+.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+.support-box { text-align: center; background: linear-gradient(135deg, #7c5cff22, #ffcc3322); }
+.btn.kofi { background: #ff5e5b; border-color: #ff5e5b; color: #fff; }
+.btn.vote { background: #ffcc33; border-color: #ffcc33; color: #2a1a00; }
+code { background: #7c5cff22; padding: 2px 6px; border-radius: 6px; }
+
+.home img { max-width: 100%; }
+.lang-gate { position: fixed; inset: 0; background: rgba(8,6,24,.92); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
+.lang-gate .box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px 24px; text-align: center; max-width: 380px; width: 100%; }
+.lang-gate img { width: 72px; height: 72px; border-radius: 18px; }
+.lang-gate h2 { border: 0; margin: 12px 0 18px; padding: 0; }
+.lang-gate button { display: block; width: 100%; margin: 10px 0; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: #ffffff10; color: var(--text); font-size: 1.05rem; font-weight: 700; cursor: pointer; }
+.lang-gate button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.lang-gate.hidden { display: none; }
+@media (max-width: 640px) { nav a { margin-left: 10px; font-size: .9rem; } .lang-switch { margin-left: 8px; } .hero .avatar { width: 64px; height: 64px; border-radius: 18px; margin-top: -32px; } }
+  </style>
 </head>
 <body class="home">
+<div class="lang-gate hidden" id="langGate">
+  <div class="box">
+    <img src="avatar.png" alt="">
+    <h2>Choisis ta langue<br><small style="color:var(--muted);font-weight:400">Choose your language</small></h2>
+    <button data-l="fr">🇫🇷 Français</button>
+    <button data-l="en">🇬🇧 English</button>
+  </div>
+</div>
 <header>
   <div class="inner">
     <a class="logo" href="index.html">🪐 <span>Orbit</span></a>
@@ -39,7 +83,7 @@
       <div><b>4</b><span class="fr">joueurs au blackjack</span><span class="en">blackjack players</span></div>
       <div><b>🇫🇷 🇬🇧</b><span class="fr">2 langues</span><span class="en">2 languages</span></div>
     </div>
-    <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1551774049808678972&permissions=268553232&scope=bot+applications.commands">➕ <span class="fr">Ajouter à Discord</span><span class="en">Add to Discord</span></a>
+    <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1551774049808678972&permissions=326686067728&scope=bot+applications.commands">➕ <span class="fr">Ajouter à Discord</span><span class="en">Add to Discord</span></a>
     <a class="btn vote" href="https://top.gg/bot/1551774049808678972/vote">🗳️ <span class="fr">Voter</span><span class="en">Vote</span></a>
     <a class="btn support-link" href="https://discord.gg/anFSkHyWSw">💬 Support</a>
   </section>
@@ -108,19 +152,24 @@
   </div>
 </footer>
 <script>
-  // Langue : choix mémorisé, sinon celle du navigateur
+  // Langue : au premier passage, le visiteur choisit ; son choix est ensuite mémorisé
   (function () {
     var saved = null;
     try { saved = localStorage.getItem('orbit-lang'); } catch (e) {}
-    var lang = saved || ((navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en');
     function apply(l) {
       document.body.classList.toggle('en', l === 'en');
       document.documentElement.lang = l;
+      // On masque aussi directement l'autre langue (au cas où la feuille de style serait en retard)
+      document.querySelectorAll('.fr').forEach(function (el) { el.style.display = l === 'fr' ? '' : 'none'; });
+      document.querySelectorAll('.en').forEach(function (el) { el.style.display = l === 'en' ? '' : 'none'; });
       document.querySelectorAll('.lang-switch button').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
       try { localStorage.setItem('orbit-lang', l); } catch (e) {}
     }
     document.querySelectorAll('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.l); }); });
-    apply(lang);
+    var gate = document.getElementById('langGate');
+    gate.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.l); gate.classList.add('hidden'); }); });
+    apply(saved || ((navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en'));
+    if (!saved) gate.classList.remove('hidden');
   })();
 </script>
 </body>
