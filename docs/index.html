@@ -3,176 +3,87 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Orbit — le casino de ton serveur Discord</title>
-  <meta name="description" content="Orbit : 13 jeux, défis quotidiens, économie virtuelle, classements automatiques et panneau web pour ton serveur Discord. En français et en anglais.">
-  <meta property="og:title" content="Orbit — le casino de ton serveur Discord">
-  <meta property="og:description" content="13 jeux, défis, classements, boutique, panneau web. Monnaie 100 % virtuelle.">
+  <title>CosmOS — bots Discord, jeux et créations</title>
+  <meta name="description" content="CosmOS : Orbit, le casino de ton serveur Discord, Polaris pour la modération, des jeux Roblox et des bots sur mesure.">
+  <meta property="og:title" content="CosmOS — bots Discord, jeux et créations">
+  <meta property="og:description" content="Orbit, Polaris, jeux Roblox et bots sur mesure.">
   <meta property="og:image" content="banner.jpg">
   <link rel="icon" href="avatar.png">
-  <link rel="stylesheet" href="style.css?v=3">
-  <style>
-/* ===== Page d'accueil v3 ===== */
-.lang-switch { display: inline-flex; border: 1px solid var(--border); border-radius: 999px; overflow: hidden; margin-left: 16px; vertical-align: middle; }
-.lang-switch button { background: none; border: 0; color: var(--muted); padding: 5px 10px; cursor: pointer; font-size: .85rem; }
-.lang-switch button.on { background: var(--accent); color: #fff; }
-body.en .fr, body:not(.en) .en { display: none !important; }
-.home main { max-width: 980px; }
-.banner { width: 100%; border-radius: 18px; display: block; border: 1px solid var(--border); }
-.hero .avatar { width: 108px; height: 108px; border-radius: 28px; margin: -70px auto 10px; display: block; border: 4px solid var(--bg); box-shadow: 0 10px 30px #7c5cff55; }
-.hero h1 { margin-top: 6px; }
-.stats { display: flex; justify-content: center; gap: 28px; flex-wrap: wrap; margin: 8px 0 18px; color: var(--muted); }
-.stats b { display: block; font-size: 1.6rem; color: var(--text); }
-.games { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
-.game { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 14px; text-align: center; }
-.game .e { font-size: 1.9rem; display: block; }
-.game b { display: block; margin-top: 4px; }
-.game small { color: var(--muted); }
-.section-title { text-align: center; margin: 44px 0 16px; border: 0; font-size: 1.5rem; }
-.steps { counter-reset: s; list-style: none; padding: 0; }
-.steps li { counter-increment: s; padding-left: 44px; position: relative; margin: 12px 0; }
-.steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
-.support-box { text-align: center; background: linear-gradient(135deg, #7c5cff22, #ffcc3322); }
-.btn.kofi { background: #ff5e5b; border-color: #ff5e5b; color: #fff; }
-.btn.vote { background: #ffcc33; border-color: #ffcc33; color: #2a1a00; }
-code { background: #7c5cff22; padding: 2px 6px; border-radius: 6px; }
-
-.home img { max-width: 100%; }
-.lang-gate { position: fixed; inset: 0; background: rgba(8,6,24,.92); backdrop-filter: blur(6px); display: flex; align-items: center; justify-content: center; z-index: 50; padding: 16px; }
-.lang-gate .box { background: var(--card); border: 1px solid var(--border); border-radius: 20px; padding: 28px 24px; text-align: center; max-width: 380px; width: 100%; }
-.lang-gate img { width: 72px; height: 72px; border-radius: 18px; }
-.lang-gate h2 { border: 0; margin: 12px 0 18px; padding: 0; }
-.lang-gate button { display: block; width: 100%; margin: 10px 0; padding: 14px; border-radius: 12px; border: 1px solid var(--border); background: #ffffff10; color: var(--text); font-size: 1.05rem; font-weight: 700; cursor: pointer; }
-.lang-gate button:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
-.lang-gate.hidden { display: none; }
-@media (max-width: 640px) { nav a { margin-left: 10px; font-size: .9rem; } .lang-switch { margin-left: 8px; } .hero .avatar { width: 64px; height: 64px; border-radius: 18px; margin-top: -32px; } }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/site.css?v=4">
 </head>
-<body class="home">
-<div class="lang-gate hidden" id="langGate">
-  <div class="box">
-    <img src="avatar.png" alt="">
-    <h2>Choisis ta langue<br><small style="color:var(--muted);font-weight:400">Choose your language</small></h2>
-    <button data-l="fr">🇫🇷 Français</button>
-    <button data-l="en">🇬🇧 English</button>
-  </div>
-</div>
-<header>
-  <div class="inner">
-    <a class="logo" href="index.html">🪐 <span>Orbit</span></a>
-    <nav>
-      <a href="#jeux"><span class="fr">Jeux</span><span class="en">Games</span></a>
-      <a href="#config"><span class="fr">Configurer</span><span class="en">Setup</span></a>
-      <a href="#soutenir"><span class="fr">Soutenir</span><span class="en">Support</span></a>
-      <a href="services.html">🛠️ Services</a>
-      <a href="terms.html">Conditions</a>
-      <a href="privacy.html"><span class="fr">Confidentialité</span><span class="en">Privacy</span></a>
-      <span class="lang-switch"><button data-l="fr">FR</button><button data-l="en">EN</button></span>
-    </nav>
-  </div>
-</header>
+<body>
 
-<main>
-  <img class="banner" src="banner.jpg" alt="Orbit">
-  <section class="hero">
-    <img class="avatar" src="avatar.png" alt="">
-    <h1>🪐 Orbit</h1>
-    <p class="fr">Le casino de ton serveur Discord : 13 jeux, des défis chaque jour, une économie propre à chaque serveur, des classements automatiques et un panneau web. En français et en anglais.</p>
-    <p class="en">Your Discord server's casino: 13 games, daily challenges, a separate economy per server, automatic leaderboards and a web panel. In English and French.</p>
-    <div class="stats">
-      <div><b>13</b><span class="fr">jeux</span><span class="en">games</span></div>
-      <div><b>6</b><span class="fr">défis / semaine</span><span class="en">challenges / week</span></div>
-      <div><b>4</b><span class="fr">joueurs au blackjack</span><span class="en">blackjack players</span></div>
-      <div><b>🇫🇷 🇬🇧</b><span class="fr">2 langues</span><span class="en">2 languages</span></div>
+<section class="hero">
+  <div class="wrap grid2">
+    <div>
+      <span class="eyebrow">🪐 <span class="fr">L’univers de Cosmos</span><span class="en">The Cosmos universe</span></span>
+      <h1><span class="fr">Des bots Discord <span class="grad">qui donnent vie</span> à ton serveur</span><span class="en">Discord bots <span class="grad">that bring your server</span> to life</span></h1>
+      <p class="lead"><span class="fr">Un casino complet avec Orbit, une équipe bien organisée avec Polaris, des jeux Roblox, et des bots faits sur mesure pour ton serveur.</span><span class="en">A full casino with Orbit, a well-run staff team with Polaris, Roblox games, and custom-made bots for your server.</span></p>
+      <div class="btns">
+        <a class="btn" data-link="invite">➕ <span class="fr">Ajouter Orbit</span><span class="en">Add Orbit</span></a>
+        <a class="btn discord" data-link="community">💬 <span class="fr">Rejoindre CosmOS</span><span class="en">Join CosmOS</span></a>
+      </div>
     </div>
-    <a class="btn primary" href="https://discord.com/oauth2/authorize?client_id=1551774049808678972&permissions=326686067728&scope=bot+applications.commands">➕ <span class="fr">Ajouter à Discord</span><span class="en">Add to Discord</span></a>
-    <a class="btn vote" href="https://top.gg/bot/1551774049808678972/vote">🗳️ <span class="fr">Voter</span><span class="en">Vote</span></a>
-    <a class="btn support-link" href="https://discord.gg/anFSkHyWSw">💬 Support</a>
-  </section>
-
-  <h2 class="section-title" id="jeux">🎮 <span class="fr">Les jeux</span><span class="en">The games</span></h2>
-  <div class="games">
-    <div class="game"><span class="e">🎰</span><b>Slots</b><small class="fr">jusqu'à x150</small><small class="en">up to x150</small></div>
-    <div class="game"><span class="e">🃏</span><b>Blackjack</b><small class="fr">seul ou à 4</small><small class="en">solo or up to 4</small></div>
-    <div class="game"><span class="e">🎡</span><b>Roulette</b><small class="fr">numéro plein x36</small><small class="en">single number x36</small></div>
-    <div class="game"><span class="e">🚀</span><b>Crash</b><small class="fr">jusqu'à x50</small><small class="en">up to x50</small></div>
-    <div class="game"><span class="e">💣</span><b>Mines</b><small class="fr">évite les bombes</small><small class="en">avoid the bombs</small></div>
-    <div class="game"><span class="e">🗼</span><b><span class="fr">Tour</span><span class="en">Tower</span></b><small class="fr">grimpe sans tomber</small><small class="en">climb, don't fall</small></div>
-    <div class="game"><span class="e">🎯</span><b>Plinko</b><small class="fr">jusqu'à x29</small><small class="en">up to x29</small></div>
-    <div class="game"><span class="e">🎟️</span><b><span class="fr">Grattage</span><span class="en">Scratch</span></b><small class="fr">jusqu'à x100</small><small class="en">up to x100</small></div>
-    <div class="game"><span class="e">🏇</span><b><span class="fr">Course</span><span class="en">Horse race</span></b><small class="fr">tout le serveur parie</small><small class="en">the whole server bets</small></div>
-    <div class="game"><span class="e">🔼</span><b><span class="fr">Plus ou moins</span><span class="en">Higher/Lower</span></b><small class="fr">suis ton instinct</small><small class="en">trust your gut</small></div>
-    <div class="game"><span class="e">🪙</span><b><span class="fr">Pile ou face</span><span class="en">Coin flip</span></b><small>x2</small></div>
-    <div class="game"><span class="e">🎲</span><b><span class="fr">Dés</span><span class="en">Dice</span></b><small class="fr">contre la maison</small><small class="en">vs the house</small></div>
-    <div class="game"><span class="e">⚔️</span><b>Duel</b><small class="fr">joueur contre joueur</small><small class="en">player vs player</small></div>
+    <div class="visual">
+      <img class="banner" src="banner.jpg" alt="Orbit">
+      <div class="float" style="left:-18px;bottom:-22px">🎮 <b>13</b><span class="fr">jeux dans Orbit</span><span class="en">games in Orbit</span></div>
+      <div class="float" style="right:-10px;top:-20px;animation-delay:-3s">🌐 <b><span class="fr">FR</span><span class="en">EN</span> + <span class="fr">EN</span><span class="en">FR</span></b><span class="fr">bilingue</span><span class="en">bilingual</span></div>
+    </div>
   </div>
+</section>
 
-  <h2 class="section-title">✨ <span class="fr">Tout ce qu'il faut pour ton serveur</span><span class="en">Everything your server needs</span></h2>
-  <div class="grid">
-    <div class="card"><h3>🎯 <span class="fr">Défis quotidiens</span><span class="en">Daily challenges</span></h3><p class="fr">3 défis par jour et 3 par semaine, différents pour chaque joueur. Tout le monde peut gagner !</p><p class="en">3 daily and 3 weekly challenges, unique to each player. Everyone can win!</p></div>
-    <div class="card"><h3>🎰 <span class="fr">Espace casino</span><span class="en">Casino area</span></h3><p class="fr">Salons dédiés, accueil avec boutons rapides : le reste du serveur reste propre.</p><p class="en">Dedicated channels and a welcome panel with quick buttons: the rest of your server stays clean.</p></div>
-    <div class="card"><h3>🏆 <span class="fr">Classement automatique</span><span class="en">Auto leaderboard</span></h3><p class="fr">Un salon qui se met à jour tout seul : richesse, niveau, plus gros gain.</p><p class="en">A channel that updates itself: wealth, level, biggest win.</p></div>
-    <div class="card"><h3>🛒 <span class="fr">Boutique fixe</span><span class="en">Shop panel</span></h3><p class="fr">Vends des rôles contre des pièces, avec un menu toujours visible.</p><p class="en">Sell roles for coins with an always-visible menu.</p></div>
-    <div class="card"><h3>🗳️ <span class="fr">Bonus de vote</span><span class="en">Vote bonus</span></h3><p class="fr">Vote pour Orbit : x1.5 sur daily, work et défis pendant 12 h.</p><p class="en">Vote for Orbit: x1.5 on daily, work and challenges for 12 h.</p></div>
-    <div class="card"><h3>🔒 <span class="fr">Vie privée</span><span class="en">Privacy</span></h3><p class="fr">Aucun message lu. <code>/mydata</code> pour voir ou supprimer tes données.</p><p class="en">No messages read. <code>/mydata</code> to view or delete your data.</p></div>
+<section>
+  <div class="wrap">
+    <div class="head center reveal">
+      <h2><span class="fr">Mes créations</span><span class="en">My creations</span></h2>
+      <p class="lead"><span class="fr">Chaque projet a sa page : clique pour tout découvrir.</span><span class="en">Every project has its own page: click to learn more.</span></p>
+    </div>
+    <div class="cards">
+      <a class="card reveal" href="orbit.html">
+        <span class="tag">✓ <span class="fr">Public</span><span class="en">Public</span></span>
+        <img class="logo" src="avatar.png" alt="">
+        <h3>Orbit</h3>
+        <p><span class="fr">Le casino de ton serveur : 13 jeux, défis quotidiens, classements en direct, boutique de rôles et panneau web.</span><span class="en">Your server’s casino: 13 games, daily challenges, live leaderboards, role shop and web dashboard.</span></p>
+        <span class="more"><span class="fr">Découvrir Orbit →</span><span class="en">Discover Orbit →</span></span>
+      </a>
+      <a class="card reveal" href="polaris.html">
+        <div class="ico">⭐</div>
+        <h3>Polaris</h3>
+        <p><span class="fr">La modération et le recrutement de CosmOS : pôles d’équipe, candidatures, tickets et logs complets.</span><span class="en">CosmOS’s moderation and recruitment: staff teams, applications, tickets and full logs.</span></p>
+        <span class="more"><span class="fr">Voir Polaris →</span><span class="en">See Polaris →</span></span>
+      </a>
+      <div class="card reveal">
+        <span class="tag soon">🚧 <span class="fr">Bientôt</span><span class="en">Soon</span></span>
+        <div class="ico green">🎮</div>
+        <h3><span class="fr">Jeux Roblox</span><span class="en">Roblox games</span></h3>
+        <p><span class="fr">Mon premier jeu Roblox est en préparation. Rejoins CosmOS pour y jouer parmi les premiers !</span><span class="en">My first Roblox game is in the works. Join CosmOS to be among the first players!</span></p>
+      </div>
+      <a class="card reveal" href="services.html">
+        <div class="ico gold">🛠️</div>
+        <h3><span class="fr">Bots sur mesure</span><span class="en">Custom bots</span></h3>
+        <p><span class="fr">Tu veux le même niveau pour ton serveur ? Je crée ton bot ou je configure ton serveur.</span><span class="en">Want the same quality for your server? I build your bot or set up your server.</span></p>
+        <span class="more"><span class="fr">Voir les offres →</span><span class="en">See the offers →</span></span>
+      </a>
+    </div>
   </div>
+</section>
 
-  <h2 class="section-title" id="config">⚙️ <span class="fr">Configurer Orbit</span><span class="en">Set up Orbit</span></h2>
-  <div class="card">
-    <ol class="steps fr">
-      <li>Ajoute Orbit à ton serveur avec le bouton en haut de la page.</li>
-      <li>Tape <code>/setup</code> : langue, jeux, rôle Maître du jeu, et Orbit crée tout l'espace casino (accueil, salon de jeu, classement, boutique).</li>
-      <li>Pour aller plus loin, tape <code>/dashboard</code> : Orbit t'envoie un <strong>lien personnel</strong> vers le panneau web, pour tout régler depuis ton navigateur (monnaie, jeux, salons, boutique, langue…).</li>
-    </ol>
-    <ol class="steps en">
-      <li>Add Orbit to your server with the button at the top of the page.</li>
-      <li>Type <code>/setup</code>: language, games, Game Master role, and Orbit builds the whole casino area (welcome, game channel, leaderboard, shop).</li>
-      <li>To go further, type <code>/dashboard</code>: Orbit sends you a <strong>personal link</strong> to the web panel to set everything from your browser (currency, games, channels, shop, language…).</li>
-    </ol>
+<section>
+  <div class="wrap">
+    <div class="cta reveal">
+      <div class="orb" style="width:110px;height:110px;margin-bottom:22px"></div>
+      <h2><span class="fr">Rejoins la communauté</span><span class="en">Join the community</span></h2>
+      <p><span class="fr">Sorties de jeux, nouveaux bots, giveaways et lives : tout arrive d’abord sur le serveur CosmOS.</span><span class="en">Game releases, new bots, giveaways and lives: everything lands on the CosmOS server first.</span></p>
+      <div class="btns">
+        <a class="btn discord" data-link="community">💬 <span class="fr">Rejoindre CosmOS</span><span class="en">Join CosmOS</span></a>
+        <a class="btn ghost" href="support.html">🛟 <span class="fr">Besoin d’aide ?</span><span class="en">Need help?</span></a>
+      </div>
+    </div>
   </div>
+</section>
 
-  <h2 class="section-title" id="soutenir">💜 <span class="fr">Soutenir Orbit</span><span class="en">Support Orbit</span></h2>
-  <div class="card support-box">
-    <p class="fr">Orbit est gratuit et développé par un passionné. Tu peux l'aider à grandir en <strong>votant</strong> (ça te donne un bonus en jeu !) ou en faisant un <strong>petit don</strong> pour payer l'hébergement.</p>
-    <p class="en">Orbit is free and made by one passionate developer. You can help it grow by <strong>voting</strong> (you get an in-game bonus!) or with a <strong>small donation</strong> to pay for hosting.</p>
-    <a class="btn vote" href="https://top.gg/bot/1551774049808678972/vote">🗳️ <span class="fr">Voter sur top.gg</span><span class="en">Vote on top.gg</span></a>
-    <a class="btn kofi" id="kofi" href="https://ko-fi.com/cosmoos">☕ <span class="fr">Faire un don sur Ko-fi</span><span class="en">Donate on Ko-fi</span></a>
-    <p class="updated" style="margin-top:12px"><span class="fr">Les dons sont 100 % volontaires et ne donnent <strong>aucun avantage en jeu</strong>.</span><span class="en">Donations are 100% voluntary and give <strong>no in-game advantage</strong>.</span></p>
-  </div>
-
-  <div class="card note" style="margin-top:28px">
-    <span class="fr">La monnaie d'Orbit est <strong>100 % virtuelle</strong> : elle ne s'achète pas, ne se revend pas et n'a aucune valeur réelle.</span>
-    <span class="en">Orbit's currency is <strong>100% virtual</strong>: it can't be bought or sold and has no real value.</span>
-  </div>
-</main>
-
-<footer>
-  <div class="inner">
-    <a href="terms.html"><span class="fr">Conditions d'utilisation</span><span class="en">Terms of service</span></a>
-    <a href="privacy.html"><span class="fr">Politique de confidentialité</span><span class="en">Privacy policy</span></a>
-    <a href="services.html"><span class="fr">Bots sur mesure</span><span class="en">Custom bots</span></a>
-    <span>© 2026 Orbit</span>
-  </div>
-</footer>
-<script>
-  // Langue : au premier passage, le visiteur choisit ; son choix est ensuite mémorisé
-  (function () {
-    var saved = null;
-    try { saved = localStorage.getItem('orbit-lang'); } catch (e) {}
-    function apply(l) {
-      document.body.classList.toggle('en', l === 'en');
-      document.documentElement.lang = l;
-      // On masque aussi directement l'autre langue (au cas où la feuille de style serait en retard)
-      document.querySelectorAll('.fr').forEach(function (el) { el.style.display = l === 'fr' ? '' : 'none'; });
-      document.querySelectorAll('.en').forEach(function (el) { el.style.display = l === 'en' ? '' : 'none'; });
-      document.querySelectorAll('.lang-switch button').forEach(function (b) { b.classList.toggle('on', b.dataset.l === l); });
-      try { localStorage.setItem('orbit-lang', l); } catch (e) {}
-    }
-    document.querySelectorAll('.lang-switch button').forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.l); }); });
-    var gate = document.getElementById('langGate');
-    gate.querySelectorAll('button').forEach(function (b) { b.addEventListener('click', function () { apply(b.dataset.l); gate.classList.add('hidden'); }); });
-    apply(saved || ((navigator.language || 'fr').slice(0, 2) === 'fr' ? 'fr' : 'en'));
-    if (!saved) gate.classList.remove('hidden');
-  })();
-</script>
+<script src="assets/site.js?v=4"></script>
 </body>
 </html>
