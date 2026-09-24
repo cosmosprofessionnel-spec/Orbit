@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Services Discord — bots et serveurs sur mesure</title>
+  <meta name="description" content="Création de bots Discord sur mesure, configuration complète de serveurs, hébergement et maintenance. Par le créateur d'Orbit.">
+  <meta property="og:title" content="Bots et serveurs Discord sur mesure">
+  <meta property="og:description" content="Configuration de serveur, bots personnalisés, hébergement 24/7. Devis gratuit.">
+  <meta property="og:image" content="banner.jpg">
+  <link rel="icon" href="avatar.png">
+  <link rel="stylesheet" href="style.css?v=3">
+  <style>
+    main { max-width: 980px; }
+    .hero { text-align: center; padding: 30px 0 10px; }
+    .hero h1 { font-size: 2.1rem; margin-bottom: 6px; }
+    .hero p { color: var(--muted); max-width: 640px; margin: 0 auto 18px; }
+    .section-title { text-align: center; margin: 44px 0 16px; border: 0; font-size: 1.5rem; }
+    .offers { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+    .offer { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; }
+    .offer.star { border-color: var(--accent); box-shadow: 0 10px 30px #7c5cff33; }
+    .offer .tag { align-self: flex-start; background: var(--accent); color: #fff; font-size: .75rem; font-weight: 700; padding: 2px 10px; border-radius: 999px; margin-bottom: 8px; }
+    .offer h3 { margin: 0 0 4px; }
+    .price { font-size: 1.6rem; font-weight: 800; margin: 6px 0 10px; }
+    .price small { font-size: .9rem; color: var(--muted); font-weight: 400; }
+    .offer ul { padding-left: 18px; margin: 0; color: var(--muted); }
+    .offer li { margin: 4px 0; }
+    .portfolio { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; }
+    .portfolio .card img { width: 56px; height: 56px; border-radius: 14px; float: left; margin-right: 12px; }
+    .steps { counter-reset: s; list-style: none; padding: 0; }
+    .steps li { counter-increment: s; padding-left: 44px; position: relative; margin: 14px 0; }
+    .steps li::before { content: counter(s); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .cta { text-align: center; background: linear-gradient(135deg, #7c5cff22, #ffcc3322); }
+    details { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 12px 16px; margin: 8px 0; }
+    summary { cursor: pointer; font-weight: 700; }
+  </style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <a class="logo" href="index.html">🪐 <span>Orbit</span></a>
+    <nav>
+      <a href="index.html">Orbit</a>
+      <a href="#offres">Offres</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>🛠️ Ton serveur Discord, fait sur mesure</h1>
+    <p>Je crée des <strong>bots Discord personnalisés</strong> et je configure des <strong>serveurs complets</strong> : rôles, salons, permissions, tickets, recrutement, économie… Tu m'expliques ton idée, je m'occupe du reste.</p>
+    <a class="btn primary" href="#contact">💬 Demander un devis gratuit</a>
+  </section>
+
+  <h2 class="section-title" id="offres">💼 Les offres</h2>
+  <div class="offers">
+    <div class="offer">
+      <h3>⚙️ Serveur clé en main</h3>
+      <div class="price">15 €</div>
+      <ul>
+        <li>Catégories, salons et rôles organisés</li>
+        <li>Permissions propres (staff, membres, visiteurs)</li>
+        <li>Règlement, accueil, auto-rôles</li>
+        <li>Installation et réglage de tes bots</li>
+      </ul>
+    </div>
+    <div class="offer star">
+      <span class="tag">Le plus demandé</span>
+      <h3>🤖 Bot sur mesure</h3>
+      <div class="price">dès 40 € <small>selon le projet</small></div>
+      <ul>
+        <li>Commandes slash à ton nom et à ton logo</li>
+        <li>Tickets, modération, candidatures, rôles…</li>
+        <li>Français et/ou anglais</li>
+        <li>7 jours de corrections inclus</li>
+      </ul>
+    </div>
+    <div class="offer">
+      <h3>🚀 Bot avancé</h3>
+      <div class="price">dès 100 €</div>
+      <ul>
+        <li>Économie, jeux, niveaux, boutique</li>
+        <li>Panneau de configuration web</li>
+        <li>Base de données, classements automatiques</li>
+        <li>Comme Orbit, mais à ton image</li>
+      </ul>
+    </div>
+    <div class="offer">
+      <h3>🌙 Hébergement & suivi</h3>
+      <div class="price">5 € <small>/ mois</small></div>
+      <ul>
+        <li>Ton bot en ligne 24 h/24</li>
+        <li>Mises à jour et petites corrections</li>
+        <li>Sans engagement</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2 class="section-title">🌟 Déjà réalisés</h2>
+  <div class="portfolio">
+    <div class="card">
+      <img src="avatar.png" alt="">
+      <h3>Orbit — casino Discord</h3>
+      <p>13 jeux, défis quotidiens, blackjack à 4, classement automatique, boutique, panneau web, bilingue. <a href="index.html">Voir Orbit →</a></p>
+    </div>
+    <div class="card">
+      <h3>⭐ Polaris — modération & recrutement</h3>
+      <p>Modération complète, pôles d'équipe (modération, helper, dev, communauté), candidatures avec formulaires et gestion des recrutements.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">📋 Comment ça marche</h2>
+  <div class="card">
+    <ol class="steps">
+      <li><strong>Tu me contactes</strong> sur Discord et tu m'expliques ton projet.</li>
+      <li><strong>Devis gratuit</strong> : je te donne le prix exact et le délai, sans engagement.</li>
+      <li><strong>Acompte de 50 %</strong> par PayPal pour lancer le travail.</li>
+      <li><strong>Livraison</strong> : tu testes, je corrige ce qu'il faut (7 jours inclus).</li>
+      <li><strong>Solde</strong> une fois que tout te convient.</li>
+    </ol>
+  </div>
+
+  <h2 class="section-title">❓ Questions fréquentes</h2>
+  <details><summary>Combien de temps ça prend ?</summary><p>Un serveur : 1 à 2 jours. Un bot simple : 2 à 5 jours. Un bot avancé : on en parle selon le projet.</p></details>
+  <details><summary>Est-ce que le bot m'appartient ?</summary><p>Oui : le bot est créé sur ton compte Discord Developer, il est à ton nom et à ton logo.</p></details>
+  <details><summary>Et si j'ai besoin d'une modification plus tard ?</summary><p>Les petites corrections sont incluses avec l'offre Hébergement & suivi. Sinon, je te fais un devis pour chaque ajout.</p></details>
+
+  <div class="card cta" id="contact" style="margin-top:32px">
+    <h2 style="border:0;margin-top:0">💬 Parlons de ton projet</h2>
+    <p>Rejoins le serveur Discord et ouvre un ticket « Commande », ou envoie-moi un message privé. Réponse en général dans la journée.</p>
+    <a class="btn primary" href="https://discord.gg/anFSkHyWSw">Rejoindre le serveur Discord</a>
+    <p class="updated" style="margin-top:12px">Paiement sécurisé par PayPal.</p>
+  </div>
+</main>
+
+<footer>
+  <div class="inner">
+    <a href="index.html">Orbit</a>
+    <a href="terms.html">Conditions d'utilisation</a>
+    <span>© 2026</span>
+  </div>
+</footer>
+</body>
+</html>
